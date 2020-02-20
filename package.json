@@ -1,0 +1,27 @@
+{
+  "name": "devs_location",
+  "version": "1.0.0",
+  "description": "",
+  "main": "strategy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellingtonn96/devs_location.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wellingtonn96/devs_location/issues"
+  },
+  "homepage": "https://github.com/wellingtonn96/devs_location#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.12.1"
+  }
+}

@@ -1,7 +1,7 @@
 const assert = require('assert')
-const Postgres = require('../postgres/postegres')
-const ContextPostgres = require('../base/contextStrategy')
-const schemaDevs = require('../postgres/schemas/devSchema')
+const Postgres = require('../db/strategies/postgres/postegres')
+const ContextPostgres = require('../db/strategies/base/contextStrategy')
+const schemaDevs = require('../db/strategies/postgres/schemas/devSchema')
 let context = {}
 
 const DEV_DEFAULT = {

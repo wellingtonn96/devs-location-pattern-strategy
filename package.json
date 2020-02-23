@@ -4,10 +4,9 @@
   "description": "",
   "main": "strategy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.js",
-    "build": "sucrase ./src -d ./dist --transforms imports",
-    "start": "node dist/app"
+    "test": "mocha src/tests/*.js",
+    "test:watch": "mocha src/tests/*.js -w",
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +22,11 @@
   "devDependencies": {
     "nodemon": "^2.0.2",
     "sucrase": "^3.12.1"
+  },
+  "dependencies": {
+    "mocha": "^7.0.1",
+    "mongoose": "^5.9.2",
+    "pg": "^7.18.2",
+    "sequelize": "^5.21.4"
   }
 }

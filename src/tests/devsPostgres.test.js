@@ -1,7 +1,7 @@
 const assert = require('assert')
-const Postgres = require('../db/strategies/postgres/postegres')
-const ContextPostgres = require('../db/strategies/base/contextStrategy')
-const schemaDevs = require('../db/strategies/postgres/schemas/devSchema')
+const Postgres = require('../database/strategies/postgres/postegres')
+const ContextPostgres = require('../database/strategies/base/contextStrategy')
+const schemaDevs = require('../database/strategies/postgres/schemas/devSchema')
 let context = {}
 
 const DEV_DEFAULT = {
@@ -26,7 +26,7 @@ const DEV_DEFAULT_ATUALIZAR = {
     updated_at: new Date()
 }
 
-describe('swite de tests devs', () => {
+describe('swite de tests manipulação de devs postgres', () => {
     before(async() => {
         const connection = await Postgres.connect()
         const model = await Postgres.defineModel(connection, schemaDevs)

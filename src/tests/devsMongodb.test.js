@@ -1,7 +1,7 @@
 const assert = require('assert')
-const Mongodb = require('../db/strategies/mongodb/mongodb')
-const model = require('../db/strategies/mongodb/schemas/userSchema')
-const contextMongodb = require('../db/strategies/base/contextStrategy')
+const Mongodb = require('../database/strategies/mongodb/mongodb')
+const model = require('../database/strategies/mongodb/schemas/userSchema')
+const contextMongodb = require('../database/strategies/base/contextStrategy')
 let context = {}
 
 const USER_DEFAULT = {

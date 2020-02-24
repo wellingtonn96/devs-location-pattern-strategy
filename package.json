@@ -24,6 +24,8 @@
     "sucrase": "^3.12.1"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
     "mocha": "^7.0.1",
     "mongoose": "^5.9.2",
     "pg": "^7.18.2",

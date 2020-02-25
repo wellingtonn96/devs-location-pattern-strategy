@@ -1,18 +1,13 @@
 const express = require('express');
 const route = express.Router()
-const {
-    createDevs,
-    readDevs,
-    updateDevs,
-    deleteDevs
-} = require('../controllers/devController')
+const devController = require('../controllers/devController')
 
-route.post('/', createDevs)
+route.post('/', devController.createDevs)
 
-route.get('/', readDevs)
+route.get('/', devController.readDevs)
 
-route.put('/:id', updateDevs)
+route.put('/:id', devController.updateDevs)
 
-route.delete('/:id', deleteDevs)
+route.delete('/:id', devController.deleteDevs)
 
 module.exports = route

@@ -6,7 +6,6 @@ const schemaDevs = require('../database/strategies/postgres/schemas/devSchema')
 
 //post
 exports.createDevs = async (req, res) => {
-
     const { github_username, techs, latitude, longitude } = req.body
 
     const apiGithub = await axios(`https://api.github.com/users/${github_username}`)

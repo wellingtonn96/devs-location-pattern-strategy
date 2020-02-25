@@ -28,11 +28,13 @@ describe.only('swite de test api devs', () => {
     it('cadastrar /devs', async() => {
         const results = await app.post(URL).send(DEV_DEFAULT)
         assert.deepEqual(results.statusCode, 200)
+        assert.deepEqual(results.body.github_username, "diego3g")
     })
 
     it('listar /devs', async() => {
-        const results = await app.get(URL)
-        assert.deepEqual(results.statusCode, 200)
+        const { body, statusCode } = await app.get(URL)
+        assert.deepEqual(statusCode, 200)
+        assert.ok(Array.isArray(body))
     })
 
     it('atualizar /devs', async () => {

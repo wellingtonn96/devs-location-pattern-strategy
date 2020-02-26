@@ -20,7 +20,7 @@ const DEV_DEFAULT_UPDATE = {
 	longitude: 45465
 }
 
-describe.only('swite de test api devs', () => {
+describe('swite de test api devs', () => {
     before(async() => {
         app = await request(api)
         await app.post(URL).send(DEV_DEFAULT)

@@ -1,7 +1,10 @@
 const express = require('express');
 const route = express.Router()
 const devController = require('../controllers/devController')
-const devsValidation = require('../helpers/validationDevs')
+const devsValidation = require('../middlewares/validationDevs')
+
+
+route.post('/login', authDevs.login)
 
 route.post('/', devsValidation, devController.createDevs)
 

@@ -1,10 +1,11 @@
 const express = require('express');
 const route = express.Router()
 const devController = require('../controllers/devController')
+
 const devsValidation = require('../middlewares/validationDevs')
+const authMiddleware = require('../middlewares/authMiddleware')
 
-
-route.post('/login', authDevs.login)
+route.use(authMiddleware.authMiddleware)
 
 route.post('/', devsValidation, devController.createDevs)
 

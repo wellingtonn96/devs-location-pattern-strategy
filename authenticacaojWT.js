@@ -10,24 +10,29 @@ const USER_DEFAULT = {
     email: 'weltossouza@gmai.com'
 }
 
-const hashAsync = promisify(bcrypt.hash)
-const compareAsync = promisify(bcrypt.compare)
+const BASE_TOKEN = {
+    secret: 'MEU SEGREDAO'
+}
+
 const SALT = 3
 
 async function main() {
 
-    const hash = await hashAsync(USER_DEFAULT.password, SALT)
+    const hash = await promisify(bcrypt.hash)(USER_DEFAULT.password, SALT)
 
-    const compare = await compareAsync(USER_DEFAULT.password, hash)
+    const compare = await promisify(bcrypt.compare)(USER_DEFAULT.password, hash)
 
     const token = JWT.sign({
         username: USER_DEFAULT.username
-    }, 'MEU SEGREDAO')
+    }, BASE_TOKEN.secret)
+
+    const compareToken = await promisify(JWT.verify)(token, BASE_TOKEN.secret)
 
     console.log(`
         Hash: ${hash},
-        Compare: ${compare},
+        Compare Hash: ${compare},
         Token: ${token}
+        Compare Token: ${compareToken.username}
     `)
 }
 

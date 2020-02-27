@@ -8,7 +8,7 @@ const STATUS_CONNECTION = {
     3: 'disconnecting',
     99: 'uninitialized',
 }
-
+ 
 class MongoDB extends ICrud {
     constructor(connection, model) {
         super()

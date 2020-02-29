@@ -1,6 +1,6 @@
 const request = require('supertest')
 const assert = require('assert')
-const api = require('../index')
+const api = require('../Server')
 let TOKEN = {}
 
 let app = {}

@@ -14,12 +14,20 @@ const DEV_DEFAULT = {
 	longitude: 45465
 }	
 
+const DEV_DEFAULT_INVALID = {
+	github_username: "diego3gS",
+	techs: "Nodejs, React e React Native",
+	latitude: 46545,
+	longitude: 45465
+}
+
 const DEV_DEFAULT_UPDATE = {
 	github_username: "wellingtonn96",
 	techs: "Nodejs, React e React Native",
 	latitude: 46545,
 	longitude: 45465
 }
+
 
 const USER_AUTH = {
 	username: "wellington",
@@ -34,9 +42,15 @@ describe('swite de test api devs', () => {
         TOKEN = body.token
     })
     it('cadastrar /devs - deve cadastrar um deve', async() => {
-        const results = await app.post(URL).send(DEV_DEFAULT).set('Authorization', TOKEN)
-        assert.deepEqual(results.statusCode, 200)
-        assert.deepEqual(results.body.github_username, "diego3g")
+        const { statusCode, body } = await app.post(URL).send(DEV_DEFAULT).set('Authorization', TOKEN)
+        assert.deepEqual(statusCode, 200)
+        assert.deepEqual(body.data.github_username, "diego3g")
+    })
+
+    it('cadastrar /devs - deve retornar messagem de erro se o usuario não existir no github', async() => {
+        const { statusCode, body } = await app.post(URL).send(DEV_DEFAULT_INVALID).set('Authorization', TOKEN)
+        assert.deepEqual(statusCode, 500)
+        assert.deepEqual(body.message, "Internal Server Error")
     })
 
     it('listar /devs - deve listar devs', async() => {
@@ -60,4 +74,4 @@ describe('swite de test api devs', () => {
         assert.deepEqual(results.statusCode, 200)
         assert.deepEqual(results.body, 1)
     })
-})
+})  

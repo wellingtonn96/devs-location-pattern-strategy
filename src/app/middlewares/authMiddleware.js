@@ -3,9 +3,7 @@ const {
     promisify
 } = require('util')
 
-const BASE_TOKEN = {
-    secret: 'MEU SEGREDAO'
-}
+const authConfig = require('../../config/auth')
 
 exports.authMiddleware = async (req, res, next) => {
     const token = req.headers.authorization
@@ -13,12 +11,11 @@ exports.authMiddleware = async (req, res, next) => {
     if(!token) return res.status(401).json({ error: 'Token does not provided!'}) 
     
     try {
-        const compareToken = await promisify(JWT.verify)(token, BASE_TOKEN.secret)
+        const compareToken = await promisify(JWT.verify)(token, authConfig.secret)
         
         req.username =  compareToken.username
         
         return next()  
-        
     } catch (error) {
         return res.json({ error: 'Token invalid!'})
     }

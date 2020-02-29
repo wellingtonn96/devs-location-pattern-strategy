@@ -7,17 +7,7 @@ const {
     promisify   
 } = require('util')
 
-
-const USER_DEFAULT = {
-    username: 'wellington',
-    password: '1232312',
-    email: 'weltossouza@gmai.com'
-}
-
-const BASE_TOKEN = {
-    secret: 'MEU SEGREDAO'
-}
-
+const authConfig = require('../../config/auth')
 
 class AuthController {
     static async login(req, res) {
@@ -32,8 +22,8 @@ class AuthController {
     
         if(compare) {
             const token = JWT.sign({
-                username: USER_DEFAULT.username
-            }, BASE_TOKEN.secret)
+                username,
+            }, authConfig.secret)
     
             return res.status(200).json({ token, message: 'token generated successfully!' })
         }

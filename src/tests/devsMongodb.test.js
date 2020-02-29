@@ -27,35 +27,35 @@ describe('swite de test manipulação de users mongodb', () => {
         assert.deepEqual(statusConnection, 'connected')
     })
     
-    it('cadastrar user', async() => {
-        const { username, password, email } = await context.create(USER_DEFAULT)
-        const expected = {
-            username,
-            password,
-            email,
-        }
-        assert.deepEqual(expected, USER_DEFAULT)
-    })
+//    it('cadastrar user', async() => {
+//         const { username, password, email } = await context.create(USER_DEFAULT)
+//         const expected = {
+//             username,
+//             password,
+//             email,
+//         }
+//         assert.deepEqual(expected, USER_DEFAULT)
+//     })
+ 
+//     it('listar users', async () => {
+//         const [{ username, password, email }] = await context.read(USER_DEFAULT)
+//         const expected = {
+//             username,
+//             password,
+//             email,
+//         }
+//         assert.deepEqual(expected, USER_DEFAULT)
+//     })
 
-    it('listar users', async () => {
-        const [{ username, password, email }] = await context.read(USER_DEFAULT)
-        const expected = {
-            username,
-            password,
-            email,
-        }
-        assert.deepEqual(expected, USER_DEFAULT)
-    })
+//     it('atulizar um user', async () => {
+//         const [{ _id }] = await context.read(USER_DEFAULT)
+//         const resutls = await context.update(_id, USER_DEFAULT_UPDATE)
+//         console.log(resutls)
+//     })
 
-    it('atulizar um user', async () => {
-        const [{ _id }] = await context.read(USER_DEFAULT)
-        const resutls = await context.update(_id, USER_DEFAULT_UPDATE)
-        console.log(resutls)
-    })
-
-    it('deletar um user', async () => {
-        const [{ _id }] = await context.read(USER_DEFAULT)
-        const resutls = await context.delete(_id)
-        assert.deepEqual(resutls.n, 1)
-    })
+//     it('deletar um user', async () => {
+//         const [{ _id }] = await context.read(USER_DEFAULT)
+//         const resutls = await context.delete(_id)
+//         assert.deepEqual(resutls.n, 1)
+//     })
 })

@@ -4,9 +4,21 @@ const Joi = require('joi')
 const Context = require('../database/strategies/base/contextStrategy')
 const Postgres = require('../database/strategies/postgres/postegres')
 const schemaDevs = require('../database/strategies/postgres/schemas/devSchema')
+const Yup = require('yup')
 
 //post
 exports.createDevs = async (req, res) => {
+    const schema = Yup.object().shape({
+        github_username: Yup.string().required(),
+        techs: Yup.string().required(),
+        latitude: Yup.number().required().min(10),
+        longitude: Yup.number().required().min(10)
+    })
+    
+    if (!(await schema.isValid(req.body))) {
+        return res.status(401).json({ error: 'Validation is failed !' });
+    }
+
     const { github_username, techs, latitude, longitude } = req.body
 
     const apiGithub = await axios(`https://api.github.com/users/${github_username}`)
@@ -44,6 +56,17 @@ exports.readDevs = async (req, res) => {
 
 //put
 exports.updateDevs = async (req, res) => {
+    const schema = Yup.object().shape({
+        github_username: Yup.string().required(),
+        techs: Yup.string().required(),
+        latitude: Yup.number().required().min(10),
+        longitude: Yup.number().required().min(10)
+    })
+    
+    if (!(await schema.isValid(req.body))) {
+        return res.status(401).json({ error: 'Validation is failed !' });
+    }
+
     const id = req.params.id
     const item = req.body
 

@@ -36,6 +36,8 @@
     "mongoose": "^5.9.2",
     "pg": "^7.18.2",
     "sequelize": "^5.21.4",
+    "swagger-jsdoc": "^3.5.0",
+    "swagger-ui-express": "^4.1.3",
     "yup": "^0.28.1"
   }
 }

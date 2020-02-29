@@ -4,6 +4,7 @@ const app = express()
 app.use(express.json())
 
 app.use('/', require('./routes/authRoutes'))
+app.use('/register', require('./routes/usersRoutes'))
 app.use('/devs', require('./routes/devsRoutes'))
 
 app.listen(3000, () => console.log('Web server running on port 3000'))

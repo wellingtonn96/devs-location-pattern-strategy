@@ -7,11 +7,11 @@ const authMiddleware = require('../middlewares/authMiddleware')
 
 route.use(authMiddleware.authMiddleware)
 
-route.post('/', devsValidation, devController.createDevs)
+route.post('/', devController.createDevs)
 
 route.get('/', devController.readDevs)
 
-route.put('/:id', devsValidation, devController.updateDevs)
+route.put('/:id', devController.updateDevs)
 
 route.delete('/:id', devController.deleteDevs)
 

@@ -33,25 +33,25 @@ describe('swite de tests manipulação de devs postgres', () => {
         context = new ContextPostgres(new Postgres(model))
     })
 
-    it('cadastrar um dev', async() => {
+    it('cadastrar um dev - dev cadastrar um dev', async() => {
         const { dataValues } = await context.create(DEV_DEFAULT)
         delete dataValues.id
         assert.deepEqual(dataValues, DEV_DEFAULT) 
     })
 
-    it('listar devs', async() => {
+    it('listar devs - deve listar devs', async() => {
         const [results] = await context.read(DEV_DEFAULT);
         delete results.id
         assert.deepEqual(results, DEV_DEFAULT)
     })
 
-    it('atualizar um dev', async() => {
+    it('atualizar um dev - deve ataulizar um dev', async() => {
         const [item] = await context.read()
         const [results] = await context.update(item.id, DEV_DEFAULT_ATUALIZAR) 
         assert.deepEqual(results, 1)
     })
 
-    it('excluir um dev', async() => {
+    it('excluir um dev - deve exclir um deve', async() => {
         const [item] = await context.read()
         const results = await context.delete(item.id)
         assert.deepEqual(results, 1)

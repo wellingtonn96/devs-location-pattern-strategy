@@ -10,12 +10,15 @@ const BASE_TOKEN = {
 exports.authMiddleware = async (req, res, next) => {
     const token = req.headers.authorization
     
-    if(!token) return res.status(401).json({ error: 'Token does not provided!'})
+    if(!token) return res.status(401).json({ error: 'Token does not provided!'}) 
     
     try {
         const compareToken = await promisify(JWT.verify)(token, BASE_TOKEN.secret)
+        
         req.username =  compareToken.username
-        return next()
+        
+        return next()  
+        
     } catch (error) {
         return res.json({ error: 'Token invalid!'})
     }

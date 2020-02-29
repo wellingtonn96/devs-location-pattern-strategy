@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const Context = require('../../database/strategies/base/contextStrategy')
 const Mongodb = require('../../database/strategies/mongodb/mongodb')
 const userSchema = require('../../database/strategies/mongodb/schemas/userSchema')
+
 const { 
     promisify   
 } = require('util')
@@ -17,7 +18,9 @@ class AuthController {
         const ContextMongodb = new Context(new Mongodb(connection, userSchema))    
 
         const [user] = await ContextMongodb.read({ username })
-    
+
+        if(!user) return res.status(401).json({ message: 'username or password invalid!'})
+
         const compare = await promisify(bcrypt.compare)(password, user.password)
     
         if(compare) {

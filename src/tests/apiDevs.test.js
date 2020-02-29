@@ -53,13 +53,13 @@ describe('swite de test api devs', () => {
         assert.deepEqual(body.message, "Internal Server Error")
     })
 
-    it('listar /devs - deve listar devs', async() => {
+    it('listar /devs - deve listar dev', async() => {
         const { body, statusCode } = await app.get(URL).set('Authorization', TOKEN)
         assert.deepEqual(statusCode, 200)
         assert.ok(Array.isArray(body))
     })
 
-    it('atualizar /devs/id - deve ataualizar um deve', async () => {
+    it('atualizar /devs/id - deve ataualizar um dev', async () => {
         const { body } = await app.get(URL).set('Authorization', TOKEN)
         const [{ id }] = body
         const results = await app.put(`${URL}/${id}`).send(DEV_DEFAULT_UPDATE).set('Authorization', TOKEN)
@@ -67,7 +67,7 @@ describe('swite de test api devs', () => {
         assert.deepEqual(results.body, [1])
     })
 
-    it('deletar /devs/id', async() => {
+    it('deletar /devs/id - deve excluir um dev', async() => {
         const { body } = await app.get(URL).set('Authorization', TOKEN)
         const [{ id }] = body
         const results = await app.delete(`${URL}/${id}`).set('Authorization', TOKEN)

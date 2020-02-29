@@ -15,7 +15,7 @@ const USER_DEFAULT_INVALID = {
     email: 'weltossouza@gmai.com'
 }  
 
-describe.only('swite de test para autenticação de usuario', () => {
+describe('swite de test para autenticação de usuario', () => {
     before(async () => {
         app = await request(api)
     })
@@ -26,7 +26,7 @@ describe.only('swite de test para autenticação de usuario', () => {
         assert.ok(body.token.length > 10)
     })
 
-    it.only('autenticar um user /login - deve retornar messagem de erro dados invalidos', async() => {
+    it('autenticar um user /login - deve retornar messagem de erro dados invalidos', async() => {
         const { body, statusCode } = await app.post('/login').send(USER_DEFAULT_INVALID)
         assert.deepEqual(statusCode, 401)
         assert.deepEqual(body.message, 'username or password invalid!')

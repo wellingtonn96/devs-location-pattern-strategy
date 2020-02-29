@@ -1,7 +1,6 @@
 const request = require('supertest')
 const assert = require('assert')
 const api = require('../Server')
-let TOKEN = {}
 
 let app = {}
 
@@ -28,18 +27,11 @@ const DEV_DEFAULT_UPDATE = {
 	longitude: 45465
 }
 
-
-const USER_AUTH = {
-	username: "wellington",
-	password: "1232312"
-}
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndlbGxpbmd0b24iLCJpYXQiOjE1ODI5ODc0MzF9.wpj-mLeKjNH6uafuC7_9xFIOS-MaH-O2-vFk-Px0-PI'
 
 describe('swite de test api devs', () => {
     before(async() => {
         app = await request(api)
-        await app.post(URL).send(DEV_DEFAULT)
-        const { body } = await app.post('/login').send(USER_AUTH)
-        TOKEN = body.token
     })
     it('cadastrar /devs - deve cadastrar um deve', async() => {
         const { statusCode, body } = await app.post(URL).send(DEV_DEFAULT).set('Authorization', TOKEN)

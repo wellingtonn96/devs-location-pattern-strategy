@@ -1,9 +1,11 @@
 const express = require('express')
 const Boom = require('boom')
 
+require('dotenv/config')
+
 class Server {
     constructor() {
-        this.PORT = 3000;
+        this.PORT = process.env.PORT;
 
         this.server = express();
 
@@ -15,7 +17,7 @@ class Server {
 
     upServer() {
         return this.server.listen(this.PORT, () => {
-            console.log('Server running on port 3000');
+            console.log(`Server running on port 3000 ${this.PORT}`);
         })
     }
 

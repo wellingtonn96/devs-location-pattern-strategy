@@ -1,4 +1,5 @@
 const ICrud = require('../interfaces/interfaceCrud')
+const dbConfig = require('../../../config/postgres')
 const Sequelize = require('sequelize');
 
 class Postegres extends ICrud {
@@ -8,11 +9,7 @@ class Postegres extends ICrud {
     }
 
     static connect() {
-        const connection = new Sequelize('dev_location', 'postgres', 1234, {
-            host: 'localhost',
-            dialect: 'postgres',
-            logging: false
-        })
+        const connection = new Sequelize(dbConfig)
         return connection
     }
 

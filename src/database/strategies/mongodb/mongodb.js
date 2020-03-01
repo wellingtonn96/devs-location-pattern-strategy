@@ -1,4 +1,5 @@
 const ICrud = require('../interfaces/interfaceCrud')
+const dbConfig = require('../../../config/mongodb')
 const Mongoose = require('mongoose');
 
 const STATUS_CONNECTION = { 
@@ -17,7 +18,7 @@ class MongoDB extends ICrud {
     }
 
     static connect() {
-        Mongoose.connect('mongodb://localhost:27017/devs_location', { 
+        Mongoose.connect(dbConfig, { 
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

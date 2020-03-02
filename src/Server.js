@@ -17,7 +17,7 @@ class Server {
 
     upServer() {
         return this.server.listen(this.PORT, () => {
-            console.log(`Server running on port 3000 ${this.PORT}`);
+            console.log(`Server running on port ${this.PORT}`);
         })
     }
 

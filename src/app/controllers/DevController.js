@@ -26,11 +26,6 @@ class DevController {
             const connection = await Postgres.connect()
             const model = await Postgres.defineModel(connection, schemaDevs)
             const ContextPostgres = new Context(new Postgres(model))
-
-            // const devExist = await ContextPostgres.read(github_username)
-
-            // if(devExist) return res.json(401).json(Boom.badData())
-            // console.log(devExist)
             
             const apiGithub = await axios(`https://api.github.com/users/${github_username}`)
         

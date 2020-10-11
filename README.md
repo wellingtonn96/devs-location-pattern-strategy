@@ -8,7 +8,7 @@ About NodeJS REST API that consumes devs profiles on GitHub and register in the 
 This app using all the latest features, tools and practices in web development!
 
 - :blue_book: **Postgres** PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
-- 💹 **Mongodb** — A open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser
+- 💹 **Mongodb** — MongoDB is great for transactional stores where performance is a concern. Its also great when the data structure is going to evolve over time, as its schema-less operations allow you to update the data on the fly.
 - 💹 **Node Js** — A open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser
 
 ## Getting started

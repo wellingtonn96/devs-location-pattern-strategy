@@ -2,7 +2,7 @@
 Devs Location
 </h1>
 <p align="center">
-About NodeJS REST API that consumes devs profiles on GitHub and register in the database with their specific locations. This app using the pattern strategy with postgres and mogodb.
+NodeJS REST API that consumes devs profiles on GitHub and register in the database with their specific locations. This app using the pattern strategy with Postgres and MongoDB.
 </p>
 
 This app using all the latest features, tools and practices in web development!
